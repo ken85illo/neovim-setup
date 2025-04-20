@@ -22,6 +22,7 @@ opt.tabstop = 4 -- Insert n spaces for a tab
 opt.softtabstop = 4 -- Spaces that a tab counts
 opt.termguicolors = true -- Enable highlight groups
 opt.whichwrap = 'bs<>[]hl' -- Allows horizontal keys to move to next line
+opt.wrap = false -- Disable line wrappping 
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true
