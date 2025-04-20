@@ -1,8 +1,3 @@
--- My init.lua configuration 
--- Automatically executes when neovim is opened
-
--- Load the configurations inside lua folder
-require("options")
-require("keymaps")
-
-
+require 'core.options'
+require 'core.keymaps'
+require 'core.autocmd'
