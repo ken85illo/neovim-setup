@@ -16,3 +16,21 @@ api.nvim_create_autocmd('VimLeavePre', {
        require("persistence").save()
    end,
 })
+
+-- More efficient quitting method when opening temporary windows
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "help", "man", "qf", "lspinfo", "checkhealth", "spectre_panel" },
+  callback = function()
+    vim.keymap.set("n", "q", "<cmd>q<CR>", {buffer = true, silent = true })
+  end,
+})
+
+-- Make background transparent
+api.nvim_create_autocmd({ "ColorScheme", "BufWinEnter", "WinNew"}, {
+    desc = "Fix all backgrounds",
+    callback = function()
+        api.nvim_set_hl(0, "WinSeparator", { fg = "#27354c" }) -- Show Window Borders
+        api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" }) -- Transparent Float Windows
+    end,
+})
+
