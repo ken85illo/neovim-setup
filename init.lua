@@ -24,5 +24,12 @@ require("lazy").setup({
     spec = {
         { import = "plugins" }, -- Import lua files inside plugins folder
       },
+    ui = {
+        border = "rounded",
+        size = {
+            width = 0.8,
+            height = 0.8,
+		},
+	},
     checker = { enabled = true },
 })
