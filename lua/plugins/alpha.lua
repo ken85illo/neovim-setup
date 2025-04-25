@@ -1,7 +1,8 @@
 return {
     'goolord/alpha-nvim',
     dependencies = { 'echasnovski/mini.icons' },
-    config = function ()
+    event = 'VimEnter',
+    config = function()
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
 
@@ -19,10 +20,10 @@ return {
 
         -- Set Menu
         dashboard.section.buttons.val = {
-            dashboard.button("e", "  New file" , ":enew <BAR> startinsert <CR>"),
-            dashboard.button("f", "  Find File" , ":Telescope find_files <CR>"),
-            dashboard.button("g", "  Find Text" , ":Telescope grep_string <CR>"),
-            dashboard.button("s", "  Restore Session" , ":lua require(\"persistence\").load() <CR>"),
+            dashboard.button("e", "  New file", ":enew <BAR> startinsert <CR>"),
+            dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
+            dashboard.button("g", "  Find Text", ":Telescope grep_string <CR>"),
+            dashboard.button("s", "  Restore Session", ":lua require(\"persistence\").load() <CR>"),
             dashboard.button("l", "󰒲  Lazy", ":Lazy <cr>"),
             dashboard.button("q", "  Quit", ":qa <cr>"),
         }
