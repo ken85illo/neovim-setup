@@ -1,5 +1,5 @@
 return {
-    "EdenEast/nightfox.nvim" ,
+    "EdenEast/nightfox.nvim",
     config = function()
         require("nightfox").setup {
             options = {
@@ -8,4 +8,4 @@ return {
         }
         vim.cmd("colorscheme carbonfox")
     end,
-} 
+}
