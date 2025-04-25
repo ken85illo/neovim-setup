@@ -1,16 +1,17 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  event = "VimEnter",
-  branch = "v3.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
-  },
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+    },
     opts = {
-      source_selector = {
-        statusline = true,
-      }
-
+        filesystem = {
+            use_libuv_file_watcher = true,
+        },
+        source_selector = {
+            statusline = true,
+        }
     },
 }
