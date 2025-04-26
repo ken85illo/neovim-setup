@@ -6,6 +6,9 @@ return {
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
         'hrsh7th/nvim-cmp',
+        'onsails/lspkind.nvim',
+        'roobert/tailwindcss-colorizer-cmp.nvim',
+
         {
             'L3MON4D3/LuaSnip',
             version = 'v2.*',
@@ -32,6 +35,7 @@ return {
     end,
     config = function()
         local cmp = require 'cmp'
+
         cmp.setup {
             -- Autoselect first choice
             completion = { completeopt = 'menu,menuone,noinsert' },
@@ -71,6 +75,18 @@ return {
 
                 ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-d>'] = cmp.mapping.scroll_docs(4),
+            },
+
+            formatting = {
+                format = require('lspkind').cmp_format {
+                    maxwidth = {
+                        menu = 50,
+                        abbr = 50,
+                    },
+                    ellipsis_char = '...',
+                    show_labelDetails = true,
+                    before = require('tailwindcss-colorizer-cmp').formatter,
+                },
             },
         }
 
