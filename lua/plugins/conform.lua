@@ -6,7 +6,7 @@ return {
             config = function()
                 require('mason-conform').setup {
                     ensure_installed = {
-                        'stylua',
+                        'stylua', --Lua
                     },
                 }
             end,
