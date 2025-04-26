@@ -7,6 +7,7 @@ return {
                 require('mason-nvim-lint').setup {
                     ensure_installed = {
                         'luacheck', -- Requires luarocks
+                        'ruff', -- Python Linter
                     },
                 }
             end,
@@ -17,6 +18,7 @@ return {
 
         lint.linters_by_ft = {
             lua = { 'luacheck' },
+            python = { 'ruff' },
         }
 
         ---@diagnostic disable-next-line: missing-fields

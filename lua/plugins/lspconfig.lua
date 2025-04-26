@@ -46,11 +46,19 @@ return {
         require('mason-lspconfig').setup {
             ensure_installed = {
                 'lua_ls', -- Lua
+                'basedpyright', --Python
             },
             automatic_installation = true,
         }
 
         -- [[Setups for LSPs]]
-        require('lspconfig').lua_ls.setup {}
+        local lsp = require 'lspconfig'
+
+        lsp.lua_ls.setup {}
+        lsp.basedpyright.setup {
+            root_dir = function()
+                return vim.fn.getcwd()
+            end,
+        }
     end,
 }

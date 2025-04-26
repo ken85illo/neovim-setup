@@ -7,6 +7,7 @@ return {
                 require('mason-conform').setup {
                     ensure_installed = {
                         'stylua', --Lua
+                        'ruff', -- Python
                     },
                 }
             end,
@@ -15,6 +16,7 @@ return {
     opts = {
         formatters_by_ft = {
             lua = { 'stylua' },
+            python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
         },
         format_on_save = {
             timeout_ms = 500,
