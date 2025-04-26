@@ -21,7 +21,17 @@ autocmd('VimLeavePre', {
 
 -- More efficient quitting method when opening temporary windows
 autocmd('FileType', {
-    pattern = { 'help', 'man', 'qf', 'lspinfo', 'checkhealth', 'spectre_panel', 'vim' },
+    pattern = {
+        'help',
+        'man',
+        'qf',
+        'lspinfo',
+        'checkhealth',
+        'spectre_panel',
+        'vim',
+        'notify',
+    },
+
     callback = function()
         vim.keymap.set('n', 'q', '<cmd>q<CR>', { buffer = true, silent = true })
     end,
