@@ -2,8 +2,8 @@ return {
     'williamboman/mason-lspconfig.nvim',
     dependencies = {
         'williamboman/mason.nvim',
-        'neovim/nvim-lspconfig',
         'hrsh7th/cmp-nvim-lsp',
+        'neovim/nvim-lspconfig',
     },
     config = function()
         -- [[Set-up using LSP Zero]]
@@ -46,11 +46,6 @@ return {
         require('mason-lspconfig').setup {
             ensure_installed = {
                 'lua_ls', -- Lua
-            },
-            diagnostics = {
-                float = {
-                    border = 'rounded', --Add lsp borders for diagnostics
-                },
             },
             automatic_installation = true,
         }
