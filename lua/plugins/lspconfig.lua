@@ -1,9 +1,10 @@
 return {
-    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
     dependencies = {
         'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
+
         'hrsh7th/cmp-nvim-lsp',
-        'neovim/nvim-lspconfig',
     },
     config = function()
         -- [[Set-up using LSP Zero]]
@@ -47,6 +48,8 @@ return {
             ensure_installed = {
                 'lua_ls', -- Lua
                 'basedpyright', --Python
+                'clangd', -- C/C++
+                'jdtls', -- Java
             },
             automatic_installation = true,
         }

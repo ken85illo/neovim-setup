@@ -8,6 +8,7 @@ return {
                     ensure_installed = {
                         'luacheck', -- Requires luarocks
                         'ruff', -- Python Linter
+                        'cpplint', -- C/C++ Linter
                     },
                 }
             end,
@@ -19,6 +20,8 @@ return {
         lint.linters_by_ft = {
             lua = { 'luacheck' },
             python = { 'ruff' },
+            c = { 'cpplint' },
+            cpp = { 'cpplint' },
         }
 
         ---@diagnostic disable-next-line: missing-fields
