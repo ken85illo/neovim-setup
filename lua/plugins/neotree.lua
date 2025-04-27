@@ -32,5 +32,11 @@ return {
         source_selector = {
             statusline = true,
         },
+        window = {
+            width = 35,
+            mappings = {
+                ['\\'] = 'close_window',
+            },
+        },
     },
 }

@@ -18,7 +18,7 @@ return {
         -- [[Telescope Keymaps]]
         return {
             { mode = 'n', '<leader>s', '<Nop>', desc = 'Search Telescope', silent = true },
-            { mode = 'n', '<leader><leader>', builtin.buffers, desc = 'Telescope Buffers', silent = true },
+            { mode = 'n', '<leader>sb', builtin.buffers, desc = 'Telescope Buffers', silent = true },
             { mode = 'n', '<leader>sf', builtin.find_files, desc = 'Files', silent = true },
             { mode = 'n', '<leader>sg', builtin.live_grep, desc = 'Live Grep', silent = true },
             { mode = 'n', '<leader>sh', builtin.help_tags, desc = 'Tags', silent = true },
