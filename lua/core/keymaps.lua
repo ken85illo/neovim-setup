@@ -1,12 +1,15 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+local km = vim.keymap
+
 local nmap = function(key, func, desc)
-    vim.keymap.set('n', key, func, { desc = desc })
+    km.set('n', key, func, { desc = desc, silent = true })
 end
 
 nmap('<leader>', '<Nop>', 'Leader Keymaps') -- Leader keymap
 nmap('<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
+km.set({ 'n', 't' }, '<Esc>', '<C-\\><C-n>', { desc = 'Exit Terminal Mode', silent = true }) -- Clear highlights on search when pressing <Esc> in normal mode
 
 -- Open Lazy UI
 nmap('<leader>l', '<cmd>Lazy<CR>', 'Open Lazy UI')
@@ -21,7 +24,7 @@ nmap('\\', '<cmd>Neotree reveal<CR>', 'Reveal Neotree')
 nmap('<leader>b', '<Nop>', 'Buffer Keymaps')
 nmap('<S-H>', '<cmd>bp<CR>', 'Previous Buffer')
 nmap('<S-L>', '<cmd>bn<CR>', 'Next Buffer')
-nmap('<leader>bd', '<cmd>bd! %d|bp<CR>', 'Delete Buffer')
+nmap('<leader>bd', '<cmd>bd!|bp<CR>', 'Delete Buffer')
 
 -- Tab Keymaps
 nmap('<leader><Tab>', '<Nop>', 'Tabs')
