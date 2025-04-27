@@ -30,6 +30,8 @@ autocmd('FileType', {
         'spectre_panel',
         'vim',
         'notify',
+        'toggleterm',
+        'markdown',
     },
 
     callback = function()
