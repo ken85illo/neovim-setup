@@ -4,13 +4,7 @@ return {
         {
             'rshkarin/mason-nvim-lint',
             config = function()
-                require('mason-nvim-lint').setup {
-                    ensure_installed = {
-                        'luacheck', -- Requires luarocks
-                        'ruff', -- Python Linter
-                        'cpplint', -- C/C++ Linter
-                    },
-                }
+                require('mason-nvim-lint').setup {}
             end,
         },
     },

@@ -4,13 +4,7 @@ return {
         {
             'zapling/mason-conform.nvim',
             config = function()
-                require('mason-conform').setup {
-                    ensure_installed = {
-                        'stylua', --Lua
-                        'ruff', -- Python
-                        'clang-format', --C/C++
-                    },
-                }
+                require('mason-conform').setup {}
             end,
         },
     },

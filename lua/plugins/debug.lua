@@ -77,13 +77,7 @@ return {
     config = function()
         require('mason').setup()
         require('mason-nvim-dap').setup {
-            ensure_installed = {
-                'lua',
-                'python',
-                'java',
-                'c',
-                'c++',
-            },
+            ensure_installed = {},
             handlers = {},
             automatic_installation = true,
         }
