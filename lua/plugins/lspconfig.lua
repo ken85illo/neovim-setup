@@ -4,32 +4,45 @@ return {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
 
-        'hrsh7th/cmp-nvim-lsp',
         'mfussenegger/nvim-jdtls', -- Java
     },
-    config = function()
+    opts = {
+        -- LSPs configuration goes here
+        servers = {
+            lua_ls = {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' },
+                        },
+                    },
+                },
+            },
+            basedpyright = {
+                root_dir = vim.fn.getcwd(),
+            },
+            clangd = {},
+        },
+    },
+    config = function(_, opts)
         -- [[Set-up using LSP Zero]]
         -- See https://lsp-zero.netlify.app/docs/tutorial.html
-
-        -- Add cmp_nvim_lsp capabilities settings to lspconfig
-        local lspconfig_defaults = require('lspconfig').util.default_config
-        lspconfig_defaults.capabilities = vim.tbl_deep_extend('force', lspconfig_defaults.capabilities, require('cmp_nvim_lsp').default_capabilities())
 
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP actions',
             callback = function(event)
-                local opts = { buffer = event.buf }
+                local options = { buffer = event.buf }
 
-                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-                vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-                vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-                vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-                vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-                vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-                vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-                vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-                vim.keymap.set({ 'n', 'x' }, '<F3>', "<cmd>lua require('conform').format()<cr>", opts)
-                vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+                vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', options)
+                vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', options)
+                vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', options)
+                vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', options)
+                vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', options)
+                vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', options)
+                vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', options)
+                vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', options)
+                vim.keymap.set({ 'n', 'x' }, '<F3>', "<cmd>lua require('conform').format()<cr>", options)
+                vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', options)
             end,
         })
 
@@ -50,22 +63,10 @@ return {
         }
 
         -- [[Setups for LSPs]]
-
-        -- Lua {{{
-        vim.lsp.config('lua_ls', {})
-        vim.lsp.enable 'lua_ls'
-        -- }}}
-
-        -- Python {{{
-        vim.lsp.config('basedpyright', {
-            root_dir = vim.fn.getcwd(),
-        })
-        vim.lsp.enable 'basedpyright'
-        --}}}
-
-        -- C/C++ {{{
-        vim.lsp.config('clangd', {})
-        vim.lsp.enable 'clangd'
-        -- }}}
+        for server, config in pairs(opts.servers) do
+            config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+            vim.lsp.config(server, config)
+            vim.lsp.enable(server)
+        end
     end,
 }
