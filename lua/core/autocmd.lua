@@ -10,17 +10,6 @@ autocmd('TextYankPost', {
     end,
 })
 
--- Disable UIs when leaving (it conflicts with persistence)
-autocmd('VimLeavePre', {
-    desc = 'Disable neo-tree and save persistence',
-    callback = function()
-        vim.cmd 'Neotree close'
-        vim.cmd "lua require('dapui').close()"
-
-        require('persistence').save()
-    end,
-})
-
 -- More efficient quitting method when opening temporary windows
 autocmd('FileType', {
     pattern = {
