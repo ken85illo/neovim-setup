@@ -10,7 +10,6 @@ return {
     },
     version = '1.*',
     opts = {
-        keymap = { preset = 'default' },
         snippets = { preset = 'luasnip' },
         appearance = {
             nerd_font_variant = 'mono',
@@ -24,9 +23,6 @@ return {
             },
         },
         cmdline = {
-            keymap = {
-                ['<Tab>'] = { 'show', 'accept' },
-            },
             completion = { menu = { auto_show = true } },
         },
         sources = {
