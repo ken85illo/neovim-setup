@@ -13,3 +13,7 @@ Note: Remove/Backup the old dotfiles
 mv ${HOME}/.config/nvim ${HOME}/.config/nvim.bak
 rm -rf ${HOME}/.local/share/nvim
 ```
+
+![Screenshot From 2025-04-29 18-13-11](https://github.com/user-attachments/assets/326053dd-cb98-4012-8955-ec8ce6a6c914)
+![Screenshot From 2025-04-29 18-14-14](https://github.com/user-attachments/assets/f221eb80-0e18-425f-b2a5-53b8362c3429)
+![Screenshot From 2025-04-29 18-22-15](https://github.com/user-attachments/assets/e3cc840f-520e-4025-97c9-a2cd01f17915)
