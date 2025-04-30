@@ -31,6 +31,7 @@ return {
                     bg = 'none',
                 },
                 tab_selected = {
+                    fg = '#75a5f8',
                     bg = 'none',
                 },
                 tab_separator = {

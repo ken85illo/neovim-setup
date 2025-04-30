@@ -31,7 +31,8 @@ nmap('<leader><Tab>', '<Nop>', 'Tabs')
 nmap('<leader><Tab>p', '<cmd>tabp<CR>', 'Previous Tab')
 nmap('<leader><Tab>n', '<cmd>tabn<CR>', 'Next Tab')
 nmap('<leader><Tab><Tab>', '<cmd>tabnew<CR>', 'Next Tab')
-nmap('<leader><Tab>d', '<cmd>tabclose<CR>', 'Next Tab')
+nmap('<leader><Tab>d', '<cmd>tabclose<CR>', 'Close Tab')
+nmap('<leader><Tab>a', '<cmd>tabnew<CR>', 'Open New Tab')
 
 -- Use vim keys as default when manipulating the windows
 nmap('<C-h>', '<C-w><C-h>', 'Move focus to the left window')
