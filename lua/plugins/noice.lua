@@ -17,21 +17,10 @@ return {
             command_palette = true,
             long_message_to_split = true,
         },
-        lsp = {
+        views = {
             hover = {
                 border = {
-                    style = 'rounded',
-                    highlight = {
-                        normal = 'BlinkCmpDoc',
-                    },
-                },
-            },
-            signature = {
-                border = {
-                    style = 'rounded',
-                    highlight = {
-                        normal = 'BlinkCmpDoc',
-                    },
+                    style = 'single',
                 },
             },
         },
