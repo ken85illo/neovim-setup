@@ -36,8 +36,9 @@ autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
     pattern = '*',
     callback = function()
         api.nvim_set_hl(0, 'WinSeparator', { fg = '#27354c' }) -- Show Window Borders
-        api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' }) -- Transparent Float Windows
         api.nvim_set_hl(0, 'TabLineFill', { bg = 'NONE' }) -- Transparent Buffer Line
         api.nvim_set_hl(0, 'TabLine', { bg = 'NONE' }) -- Transparent Buffer Line
+        api.nvim_set_hl(0, 'MasonNormal', { bg = 'NONE' }) -- Transparent Buffer Line
+        api.nvim_set_hl(0, 'LazyNormal', { bg = 'NONE' }) -- Transparent Buffer Line
     end,
 })
