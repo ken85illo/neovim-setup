@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.guicursor = 'n-v-c:block-Cursor/lCursor-blinkon1-blinkoff1-blinkwait1' -- Blinking block cursor
 opt.number = true -- Show line numbers
 opt.relativenumber = true -- Add relative numbers
 opt.scrolloff = 10 -- Minimal number of lines until the display scrolls

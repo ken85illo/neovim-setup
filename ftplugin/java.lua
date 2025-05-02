@@ -1,14 +1,11 @@
-local home = os.getenv 'HOME'
+local home = os.getenv 'HOME' .. '/'
 local jdtls = require 'jdtls'
-local workspace_path = home .. '/.local/share/nvim/jdtls-workspace/'
-local mason_packages_path = home .. '/.local/share/nvim/mason/packages/'
+local workspace_path = home .. '.local/share/nvim/jdtls-workspace/'
+local mason_packages_path = home .. '.local/share/nvim/mason/packages/'
 local jdtls_path = mason_packages_path .. 'jdtls/'
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = workspace_path .. project_name
-
-local extendedClientCapabilities = jdtls.extendedClientCapabilities
-extendedClientCapabilities.onCompletionItemSelectedCommand = 'editor.action.triggerParameterHints'
 
 local on_attach = function()
     vim.api.nvim_set_keymap('n', '<A-o>', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { noremap = true, silent = true })
@@ -17,17 +14,6 @@ local on_attach = function()
     vim.api.nvim_set_keymap('n', 'crc', "<Cmd>lua require('jdtls').extract_constant()<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap('v', 'crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { noremap = true, silent = true })
     vim.api.nvim_set_keymap('v', 'crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { noremap = true, silent = true })
-
-    vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
-        callback = function()
-            vim.lsp.inlay_hint.enable(true, nil)
-        end,
-    })
-    vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
-        callback = function()
-            vim.lsp.inlay_hint.enable(false, nil)
-        end,
-    })
 end
 
 local bundles = {
@@ -85,9 +71,10 @@ local config = {
     },
 
     init_options = {
-        extendedClientCapabilities = extendedClientCapabilities,
         bundles = bundles,
     },
 }
+
+config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
 
 jdtls.start_or_attach(config)

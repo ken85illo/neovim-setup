@@ -1,9 +1,5 @@
 local api = vim.api
 local autocmd = api.nvim_create_autocmd
-local augroup = api.nvim_create_augroup
-
--- Remove background of blink docs
-api.nvim_set_hl(0, 'NoicePopupBorder', { bg = 'NONE' })
 
 -- Display a highlight when yanking text
 autocmd('TextYankPost', {
@@ -38,16 +34,26 @@ autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
     desc = 'Transparent background',
     pattern = '*',
     callback = function()
-        api.nvim_set_hl(0, 'WinSeparator', { fg = '#27354c' }) -- Show Window Borders
+        api.nvim_set_hl(0, 'WinSeparator', { fg = '#292a29' }) -- Show Window Borders
         api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' }) -- Transparent Float Windows
         api.nvim_set_hl(0, 'TabLineFill', { bg = 'NONE' }) -- Transparent Buffer Line
         api.nvim_set_hl(0, 'TabLine', { bg = 'NONE' }) -- Transparent Buffer Line
 
         -- Remove background for blink doc
         api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'NONE' })
-        api.nvim_set_hl(0, 'BlinkCmpDocBorder', { bg = 'NONE', fg = '#292a29' })
-        api.nvim_set_hl(0, 'BlinkSignatureHelp', { bg = 'NONE' })
-        api.nvim_set_hl(0, 'BlinkSignatureHelpBorder', { bg = 'NONE', fg = '#292a29' })
-        api.nvim_set_hl(0, 'NoicePopupBorder', { fg = '#292a29' })
+        api.nvim_set_hl(0, 'BlinkCmpDocBorder', { bg = 'NONE', fg = '#7a7b7d' })
+        api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = 'NONE' })
+        api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { bg = 'NONE', fg = '#7a7b7d' })
+    end,
+})
+
+vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
+    callback = function()
+        vim.lsp.inlay_hint.enable(true, nil)
+    end,
+})
+vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
+    callback = function()
+        vim.lsp.inlay_hint.enable(false, nil)
     end,
 })

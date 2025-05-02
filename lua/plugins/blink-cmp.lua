@@ -8,6 +8,9 @@ return {
             'L3MON4D3/LuaSnip',
             version = 'v2.*',
             build = 'make install_jsregexp',
+            opts = {
+                enable_autosnippets = true,
+            },
         },
     },
     version = '1.*',
@@ -17,6 +20,7 @@ return {
             nerd_font_variant = 'mono',
         },
         signature = {
+            enabled = true,
             window = {
                 border = 'single',
             },
@@ -31,6 +35,7 @@ return {
                 window = { border = 'single' },
             },
             menu = {
+                auto_show = true,
                 draw = {
                     components = {
                         kind_icon = {
