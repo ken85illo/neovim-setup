@@ -22,9 +22,11 @@ nmap('\\', '<cmd>Neotree reveal<CR>', 'Reveal Neotree')
 
 -- Buffer Keymaps
 nmap('<leader>b', '<Nop>', 'Buffer Keymaps')
-nmap('<S-H>', '<cmd>bp<CR>', 'Previous Buffer')
-nmap('<S-L>', '<cmd>bn<CR>', 'Next Buffer')
-nmap('<leader>bd', '<cmd>bd!|bp<CR>', 'Delete Buffer')
+nmap('<S-L>', '<cmd>BufferLineCycleNext<CR>', 'Next Buffer')
+nmap('<S-H>', '<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer')
+nmap('<leader>bc', '<cmd>BufferLinePickClose<CR>', 'Delete Buffer')
+nmap('<leader>bn', '<cmd>BufferLineMoveNext<CR><CR>', 'Move to Next Buffer')
+nmap('<leader>bp', '<cmd>BufferLineMovePrev<CR>', 'Move to Previous Buffer')
 
 -- Tab Keymaps
 nmap('<leader><Tab>', '<Nop>', 'Tabs')
