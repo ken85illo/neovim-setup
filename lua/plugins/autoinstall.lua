@@ -23,6 +23,16 @@ return {
                 'codelldb',
                 -- }}}
 
+                -- Makefile {{{
+                'checkmake',
+                -- }}}
+
+                -- CMake {{{
+                'cmake-language-server',
+                'cmakelang',
+                'cmakelint',
+                -- }}}
+
                 -- Java {{{
                 'jdtls',
                 'java-debug-adapter',

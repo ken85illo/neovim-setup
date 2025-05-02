@@ -15,6 +15,7 @@ return {
             c = { 'clang-format' },
             cpp = { 'clang-format' },
             json = { 'prettierd' },
+            cmake = { 'cmakelang' },
         },
         format_on_save = {
             timeout_ms = 500,

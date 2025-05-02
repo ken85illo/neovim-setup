@@ -17,6 +17,8 @@ return {
             c = { 'cpplint' },
             cpp = { 'cpplint' },
             json = { 'jsonlint' },
+            make = { 'checkmake' },
+            cmake = { 'cmakelint' },
         }
 
         ---@diagnostic disable-next-line: missing-fields
