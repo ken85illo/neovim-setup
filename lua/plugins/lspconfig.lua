@@ -21,7 +21,6 @@ return {
                 basedpyright = {
                     root_dir = vim.fn.getcwd(),
                 },
-                clangd = {},
             },
         },
         config = function(_, opts)
@@ -63,8 +62,18 @@ return {
             }
 
             -- [[Setups for LSPs]]
-            for server, config in pairs(opts.servers) do
-                config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+            -- Automatically add other installed LSPs
+            local installed_lsps = {}
+            for _, pkg in ipairs(require('mason-registry').get_installed_packages()) do
+                if pkg.spec.categories[1] == 'LSP' then
+                    installed_lsps[pkg.name] = {}
+                end
+            end
+            installed_lsps['jdtls'] = nil -- Exclude JDTLS (nvim-jdtls already installed)
+
+            local all_lsps = vim.tbl_extend('keep', opts.servers, installed_lsps)
+            for server, config in pairs(all_lsps) do
+                config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities or {})
                 vim.lsp.config(server, config)
                 vim.lsp.enable(server)
             end

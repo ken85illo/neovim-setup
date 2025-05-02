@@ -27,6 +27,12 @@ return {
                 'jdtls',
                 'java-debug-adapter',
                 -- }}}
+
+                -- JSON {{{
+                'json-lsp',
+                'prettierd',
+                'jsonlint',
+                --}}}
             },
         }
     end,

@@ -16,6 +16,7 @@ return {
             python = { 'ruff' },
             c = { 'cpplint' },
             cpp = { 'cpplint' },
+            json = { 'jsonlint' },
         }
 
         ---@diagnostic disable-next-line: missing-fields

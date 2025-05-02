@@ -14,6 +14,7 @@ return {
             python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
             c = { 'clang-format' },
             cpp = { 'clang-format' },
+            json = { 'prettierd' },
         },
         format_on_save = {
             timeout_ms = 500,
