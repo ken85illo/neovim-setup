@@ -47,12 +47,13 @@ autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
+autocmd({ 'InsertEnter' }, {
     callback = function()
         vim.lsp.inlay_hint.enable(true, nil)
     end,
 })
-vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
+
+autocmd({ 'InsertLeave' }, {
     callback = function()
         vim.lsp.inlay_hint.enable(false, nil)
     end,
