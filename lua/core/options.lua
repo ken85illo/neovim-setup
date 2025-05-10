@@ -1,6 +1,7 @@
 local opt = vim.opt
 
-opt.guicursor = 'n-v-c:block-Cursor/lCursor-blinkon1-blinkoff1-blinkwait1' -- Blinking block cursor
+-- Make the cursor blink on neovim (See :help guicursor)
+opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 opt.number = true -- Show line numbers
 opt.relativenumber = true -- Add relative numbers
 opt.scrolloff = 10 -- Minimal number of lines until the display scrolls

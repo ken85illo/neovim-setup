@@ -6,7 +6,6 @@ return {
                 -- Lua {{{
                 'lua-language-server',
                 'stylua',
-                'luacheck', -- Requires luarocks
                 'local-lua-debugger-vscode',
                 --}}}
 
@@ -19,7 +18,6 @@ return {
                 -- C/C++ {{{
                 'clangd',
                 'clang-format',
-                'cpplint',
                 'codelldb',
                 -- }}}
 
@@ -30,7 +28,6 @@ return {
                 -- CMake {{{
                 'cmake-language-server',
                 'cmakelang',
-                'cmakelint',
                 -- }}}
 
                 -- Java {{{
@@ -41,7 +38,6 @@ return {
                 -- JSON {{{
                 'json-lsp',
                 'prettierd',
-                'jsonlint',
                 --}}}
             },
         }

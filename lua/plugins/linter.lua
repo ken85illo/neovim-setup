@@ -11,33 +11,7 @@ return {
     config = function()
         local lint = require 'lint'
 
-        lint.linters_by_ft = {
-            lua = { 'luacheck' },
-            python = { 'ruff' },
-            c = { 'cpplint' },
-            cpp = { 'cpplint' },
-            json = { 'jsonlint' },
-            make = { 'checkmake' },
-            cmake = { 'cmakelint' },
-        }
-
-        ---@diagnostic disable-next-line: missing-fields
-        lint.linters.luacheck = {
-            cmd = 'luacheck',
-            stdin = true,
-            args = {
-                '--globals',
-                'vim',
-                'lvim',
-                'reload',
-                '--',
-            },
-            stream = 'stdout',
-            ignore_exitcode = true,
-            parser = require('lint.parser').from_errorformat('%f:%l:%c: %m', {
-                source = 'luacheck',
-            }),
-        }
+        lint.linters_by_ft = {}
 
         vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
             callback = function()
