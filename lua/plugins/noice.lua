@@ -22,6 +22,9 @@ return {
                 border = {
                     style = 'single',
                 },
+                position = {
+                    row = 2,
+                },
             },
         },
         lsp = {
