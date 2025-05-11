@@ -28,6 +28,7 @@ return {
                 -- CMake {{{
                 'cmake-language-server',
                 'cmakelang',
+                'cmakelint',
                 -- }}}
 
                 -- Java {{{
