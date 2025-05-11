@@ -9,7 +9,7 @@ end
 
 nmap('<leader>', '<Nop>', 'Leader Keymaps') -- Leader keymap
 nmap('<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
-km.set({ 'n', 't' }, '<Esc>', '<C-\\><C-n>', { desc = 'Exit Terminal Mode', silent = true }) -- Clear highlights on search when pressing <Esc> in normal mode
+km.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit Terminal Mode', silent = true }) -- Clear highlights on search when pressing <Esc> in normal mode
 
 -- Open Lazy UI
 nmap('<leader>l', '<cmd>Lazy<CR>', 'Open Lazy UI')
@@ -24,9 +24,10 @@ nmap('\\', '<cmd>Neotree reveal<CR>', 'Reveal Neotree')
 nmap('<leader>b', '<Nop>', 'Buffer Keymaps')
 nmap('<S-L>', '<cmd>BufferLineCycleNext<CR>', 'Next Buffer')
 nmap('<S-H>', '<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer')
-nmap('<leader>bc', '<cmd>BufferLinePickClose<CR>', 'Delete Buffer')
 nmap('<leader>bn', '<cmd>BufferLineMoveNext<CR><CR>', 'Move to Next Buffer')
 nmap('<leader>bp', '<cmd>BufferLineMovePrev<CR>', 'Move to Previous Buffer')
+nmap('<leader>bd', '<cmd>bd!|bp<CR>', 'Delete Current Buffer')
+nmap('<leader>ba', '<cmd>%bd<CR>', 'Delete Every Buffer')
 
 -- Tab Keymaps
 nmap('<leader><Tab>', '<Nop>', 'Tabs')
