@@ -7,7 +7,7 @@ return {
             options = {
                 diagnostics = 'nvim_lsp',
                 tab_size = 0,
-                close_command = 'bd! %d|bp',
+                close_command = 'bd! %d',
                 indicator = {
                     style = 'none',
                 },

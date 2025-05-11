@@ -26,7 +26,8 @@ nmap('<S-L>', '<cmd>BufferLineCycleNext<CR>', 'Next Buffer')
 nmap('<S-H>', '<cmd>BufferLineCyclePrev<CR>', 'Previous Buffer')
 nmap('<leader>bn', '<cmd>BufferLineMoveNext<CR><CR>', 'Move to Next Buffer')
 nmap('<leader>bp', '<cmd>BufferLineMovePrev<CR>', 'Move to Previous Buffer')
-nmap('<leader>bd', '<cmd>bd!|bp<CR>', 'Delete Current Buffer')
+nmap('<leader>bo', '<cmd>BufferLineCloseOthers<CR>', 'Delete Every Buffer')
+nmap('<leader>bd', '<cmd>bn|bd! #<CR>', 'Delete Current Buffer')
 nmap('<leader>ba', '<cmd>%bd<CR>', 'Delete Every Buffer')
 
 -- Tab Keymaps
@@ -54,4 +55,6 @@ nmap('|', '<cmd>vsplit<CR>', 'Vertical Split')
 nmap('-', '<cmd>split<CR>', 'Horizontal Split')
 
 -- Toggle Inlay Hint
-nmap('<F6>', vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()), 'Toggle Inlay Hints')
+nmap('<F6>', function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, 'Toggle Inlay Hints')
