@@ -46,15 +46,3 @@ autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
         api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { bg = 'NONE', fg = '#7a7b7d' })
     end,
 })
-
-autocmd({ 'InsertEnter' }, {
-    callback = function()
-        vim.lsp.inlay_hint.enable(true, nil)
-    end,
-})
-
-autocmd({ 'InsertLeave' }, {
-    callback = function()
-        vim.lsp.inlay_hint.enable(false, nil)
-    end,
-})

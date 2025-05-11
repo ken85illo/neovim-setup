@@ -52,3 +52,6 @@ nmap('<C-Right>', '<cmd>vertical resize +2<CR>', 'Increase Window Size (Vertical
 -- Spawn window vertically or horizontally
 nmap('|', '<cmd>vsplit<CR>', 'Vertical Split')
 nmap('-', '<cmd>split<CR>', 'Horizontal Split')
+
+-- Toggle Inlay Hint
+nmap('<F6>', vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()), 'Toggle Inlay Hints')
