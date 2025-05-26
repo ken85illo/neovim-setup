@@ -75,14 +75,21 @@ return {
     },
 
     config = function()
+        local home = os.getenv 'HOME' .. '/'
+        local dap = require 'dap'
+
         require('mason').setup()
         require('mason-nvim-dap').setup {
             ensure_installed = {},
             handlers = {},
             automatic_installation = true,
         }
-
         require('dapui').setup()
-        require('dap-python').setup '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+        require('dap-python').setup(home .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
+
+        dap.adapters.codelldb = {
+            type = 'executable',
+            command = home .. '.local/share/nvim/mason/packages/codelldb/codelldb',
+        }
     end,
 }
