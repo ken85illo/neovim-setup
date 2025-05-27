@@ -8,6 +8,18 @@ return {
         'MunifTanjim/nui.nvim',
     },
     opts = {
-        -- configuration goes here
+        lang = 'cpp',
+        injector = {
+            ['python3'] = {
+                before = true,
+            },
+            ['cpp'] = {
+                before = { '#include <bits/stdc++.h>', 'using namespace std;' },
+                after = 'int main() {}',
+            },
+            ['java'] = {
+                before = 'import java.util.*;',
+            },
+        },
     },
 }
