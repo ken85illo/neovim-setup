@@ -21,6 +21,9 @@ return {
                 basedpyright = {
                     root_dir = vim.fn.getcwd(),
                 },
+                clangd = {
+                    cmd = { 'clangd', '--header-insertion=never' },
+                },
             },
         },
         config = function(_, opts)
