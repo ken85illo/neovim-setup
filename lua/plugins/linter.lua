@@ -7,6 +7,13 @@ return {
                 require('mason-nvim-lint').setup {}
             end,
         },
+        {
+            'sontungexpt/better-diagnostic-virtual-text',
+            event = 'LspAttach',
+            config = function(_)
+                require('better-diagnostic-virtual-text').setup(opts)
+            end,
+        },
     },
     config = function()
         local lint = require 'lint'
