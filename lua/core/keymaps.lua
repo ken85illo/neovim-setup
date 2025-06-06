@@ -58,3 +58,6 @@ nmap('-', '<cmd>split<CR>', 'Horizontal Split')
 nmap('<F6>', function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, 'Toggle Inlay Hints')
+
+-- Diagnostic
+nmap('<leader>wd', '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Floating Diagnostic")
