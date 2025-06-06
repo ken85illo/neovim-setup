@@ -22,182 +22,182 @@ return {
             },
             highlights = {
                 fill = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 background = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 tab = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 tab_selected = {
                     fg = '#75a5f8',
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 tab_separator = {
-                    bg = 'none',
-                    fg = '#0c0c0c',
+                    bg = '#141414',
+                    fg = '#141414',
                 },
                 tab_separator_selected = {
-                    bg = 'none',
-                    fg = '#0c0c0c',
+                    bg = '#141414',
+                    fg = '#141414',
                 },
                 tab_close = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 close_button = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 close_button_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 close_button_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 buffer_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 buffer_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 numbers = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 numbers_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 numbers_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 diagnostic = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 diagnostic_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 diagnostic_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 hint = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 hint_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 hint_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 hint_diagnostic = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 hint_diagnostic_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 hint_diagnostic_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 info = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 info_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 info_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 info_diagnostic = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 info_diagnostic_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 info_diagnostic_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 warning = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 warning_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 warning_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 warning_diagnostic = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 warning_diagnostic_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 warning_diagnostic_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 error = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 error_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 error_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 error_diagnostic = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 error_diagnostic_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 error_diagnostic_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 modified = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 modified_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 modified_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 duplicate_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 duplicate_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 duplicate = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 separator_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 separator_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 separator = {
-                    bg = 'none',
-                    fg = '#0c0c0c',
+                    bg = '#141414',
+                    fg = '#141414',
                 },
                 indicator_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 indicator_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 pick_selected = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 pick_visible = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 pick = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 offset_separator = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
                 trunc_marker = {
-                    bg = 'none',
+                    bg = '#141414',
                 },
             },
         }
