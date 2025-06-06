@@ -20,6 +20,11 @@ return {
                 },
                 basedpyright = {
                     root_dir = vim.fn.getcwd(),
+                    settings = {
+                        basedpyright = {
+                            typeCheckingMode = 'standard',
+                        },
+                    },
                 },
                 clangd = {
                     cmd = { 'clangd', '--header-insertion=never' },
