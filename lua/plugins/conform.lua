@@ -14,13 +14,12 @@ return {
             python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
             c = { 'clang-format' },
             cpp = { 'clang-format' },
-            json = { 'prettierd' },            
+            json = { 'prettierd' },
             cmake = { 'cmakelang' },
         },
-        -- format_on_save = {
-        --     timeout_ms = 500,
-        --     lsp_format = 'fallback',
-        -- },
-        format_on_save = false,
+        format_on_save = {
+            timeout_ms = 500,
+            lsp_format = 'fallback',
+        },
     },
 }
