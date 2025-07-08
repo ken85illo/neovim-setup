@@ -19,6 +19,7 @@ return {
                 'clangd',
                 'clang-format',
                 'codelldb',
+                'glsl_analyzer',
                 -- }}}
 
                 -- Makefile {{{
