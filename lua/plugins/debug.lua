@@ -84,12 +84,28 @@ return {
             handlers = {},
             automatic_installation = true,
         }
-        require('dapui').setup()
+        require('dapui').setup { reset = true }
         require('dap-python').setup(home .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
 
         dap.adapters.codelldb = {
             type = 'executable',
             command = home .. '.local/share/nvim/mason/packages/codelldb/codelldb',
         }
+
+        dap.configurations.c = {
+            {
+                name = 'Launch',
+                type = 'codelldb',
+                request = 'launch',
+                program = function() -- Ask the user what executable wants to debug
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/build/bin/program', 'file')
+                end,
+                cwd = '${workspaceFolder}/build',
+                stopOnEntry = false,
+                args = {},
+            },
+        }
+
+        dap.configurations.cpp = dap.configurations.c
     end,
 }

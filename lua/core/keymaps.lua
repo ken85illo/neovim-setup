@@ -60,4 +60,4 @@ nmap('<F6>', function()
 end, 'Toggle Inlay Hints')
 
 -- Diagnostic
-nmap('<leader>wd', '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Floating Diagnostic")
+nmap('<M-d>', '<cmd>lua vim.diagnostic.open_float()<CR>', 'Open Floating Diagnostic')

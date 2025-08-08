@@ -41,6 +41,18 @@ return {
                 'json-lsp',
                 'prettierd',
                 --}}}
+
+                -- WEBDEV {{{
+                'html-lsp',
+                'css-lsp',
+                'typescript-language-server',
+                --}}}
+
+                -- Bash {{{
+                'bashls',
+                'beautysh',
+                'shellcheck',
+                -- }}}
             },
         }
     end,

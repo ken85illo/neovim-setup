@@ -15,7 +15,12 @@ return {
             c = { 'clang-format' },
             cpp = { 'clang-format' },
             json = { 'prettierd' },
+            html = { 'prettierd' },
+            js = { 'prettierd' },
+            css = { 'prettierd' },
             cmake = { 'cmakelang' },
+            sh = { 'beautysh' },
+            bash = { 'beautysh' },
         },
         format_on_save = {
             timeout_ms = 500,

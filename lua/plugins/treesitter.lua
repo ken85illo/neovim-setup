@@ -22,8 +22,8 @@ return {
         opts = function()
             local km = vim.keymap
             km.set('n', '<leader>c', '<Nop>', { desc = 'Treesitter CPP', silent = true })
-            km.set('n', '<leader>cf', '<cmd>TSCppDefineClassFunc<CR>', { desc = 'Create class definition (Tab to accept)', silent = true })
-            km.set('v', '<leader>cf', "<cmd>'<,'>TSCppDefineClassFunc<CR>", { desc = 'Create class definition (Tab to accept)', silent = true })
+            km.set('n', '<leader>cf', ':TSCppDefineClassFunc<CR>', { desc = 'Create class definition (Tab to accept)', silent = true })
+            km.set('v', '<leader>cf', ":'<,'>TSCppDefineClassFunc<CR>", { desc = 'Create class definition (Tab to accept)', silent = true })
 
             local options = {
                 preview = {

@@ -33,6 +33,7 @@ return {
             { mode = 'n', '<leader>s:', builtin.commands, desc = 'Commands', silent = true },
             { mode = 'n', '<leader>sm', builtin.man_pages, desc = 'Man Pages', silent = true },
             { mode = 'n', '<leader>sd', builtin.diagnostics, desc = 'Diagnostics', silent = true },
+            { mode = 'n', '<leader>sq', builtin.resume, desc = 'Continue Search', silent = true },
         }
     end,
     config = function()

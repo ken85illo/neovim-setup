@@ -29,6 +29,20 @@ autocmd('FileType', {
     end,
 })
 
+-- C/C++ Switch to header/source
+autocmd('FileType', {
+    pattern = {
+        'cpp',
+        'hpp',
+        'h',
+        'c',
+    },
+
+    callback = function()
+        vim.keymap.set({ 'n', 'i' }, '<M-e>', '<cmd>LspClangdSwitchSourceHeader<CR>', { desc = 'Switch to header/source', buffer = true, silent = true })
+    end,
+})
+
 -- Make background transparent
 autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
     desc = 'Transparent background',

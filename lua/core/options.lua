@@ -29,8 +29,8 @@ opt.showmode = false -- Don't show mode, its already displayed in lualine
 opt.laststatus = 3 -- Show line between horizontal splits
 
 -- Case-insensitive searhing UNLESS \C or one or more capital letters in the search term
-opt.ignorecase = true
-opt.smartcase = true
+opt.ignorecase = false
+opt.smartcase = false
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 opt.list = true

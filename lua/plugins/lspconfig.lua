@@ -29,6 +29,9 @@ return {
                 clangd = {
                     cmd = { 'clangd', '--header-insertion=never' },
                 },
+                html = {
+                    root_dir = vim.fn.getcwd(),
+                },
             },
         },
         config = function(_, opts)
