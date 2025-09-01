@@ -61,3 +61,8 @@ end, 'Toggle Inlay Hints')
 
 -- Diagnostic
 nmap('<M-d>', '<cmd>lua vim.diagnostic.open_float()<CR>', 'Open Floating Diagnostic')
+
+-- Disable automatic copying when pasting text
+vim.keymap.set('x', 'p', function()
+    return 'pgv"' .. vim.v.register .. 'y'
+end, { expr = true })
