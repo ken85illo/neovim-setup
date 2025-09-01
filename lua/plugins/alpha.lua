@@ -23,7 +23,7 @@ return {
             dashboard.button('e', '  New file', ':enew <BAR> startinsert <CR>'),
             dashboard.button('f', '  Find File', ':Telescope find_files <CR>'),
             dashboard.button('g', '  Find Text', ':Telescope grep_string <CR>'),
-            dashboard.button('s', '  Restore Session', ':SessionRestore<CR>'),
+            dashboard.button('s', '  Restore Session', ':AutoSession restore<CR>'),
             dashboard.button('l', '󰒲  Lazy', ':Lazy <cr>'),
             dashboard.button('q', '  Quit', ':qa <cr>'),
         }
