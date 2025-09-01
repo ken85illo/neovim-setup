@@ -13,7 +13,7 @@ return {
     keys = {
         {
             '<leader>d',
-            '<Nop',
+            '<Nop>',
             desc = 'DAP Debugger',
         },
         {
