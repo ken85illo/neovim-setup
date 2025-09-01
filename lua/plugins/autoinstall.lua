@@ -28,7 +28,6 @@ return {
 
                 -- CMake {{{
                 'cmake-language-server',
-                'cmakelang',
                 'cmakelint',
                 -- }}}
 
@@ -39,13 +38,14 @@ return {
 
                 -- JSON {{{
                 'json-lsp',
-                'prettierd',
+                'prettier',
                 --}}}
 
                 -- WEBDEV {{{
                 'html-lsp',
                 'css-lsp',
                 'typescript-language-server',
+                'emmet-language-server',
                 --}}}
 
                 -- Bash {{{
