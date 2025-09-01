@@ -61,12 +61,14 @@ autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
         api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' }) -- Transparent Float Windows
 
         -- Dark Gray Buffer Line
-        api.nvim_set_hl(0, 'TabLineFill', { bg = '#141414' })
-        api.nvim_set_hl(0, 'TabLine', { bg = '#141414' })
+        api.nvim_set_hl(0, 'TabLineFill', { bg = '#202020' })
+        api.nvim_set_hl(0, 'TabLine', { bg = '#202020' })
+        api.nvim_set_hl(0, 'BufferLine', { bg = '#202020' })
+        api.nvim_set_hl(0, 'BufferLineFill', { bg = '#202020' })
 
         -- Dark Gray Status Line
-        api.nvim_set_hl(0, 'StatusLine', { bg = '#141414' })
-        api.nvim_set_hl(0, 'StatusLineNC', { bg = '#141414' })
+        api.nvim_set_hl(0, 'StatusLine', { bg = '#202020' })
+        api.nvim_set_hl(0, 'StatusLineNC', { bg = '#202020' })
 
         -- Remove background for blink doc
         api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'NONE' })
