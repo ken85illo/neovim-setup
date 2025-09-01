@@ -43,6 +43,15 @@ autocmd('FileType', {
     end,
 })
 
+-- Disable folds in neo-tree
+autocmd('FileType', {
+    pattern = { 'neo-tree' },
+    callback = function()
+        require('ufo').detach()
+        vim.opt_local.foldenable = false
+    end,
+})
+
 -- Make background transparent
 autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
     desc = 'Transparent background',
