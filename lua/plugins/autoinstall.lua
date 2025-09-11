@@ -53,6 +53,10 @@ return {
                 'beautysh',
                 'shellcheck',
                 -- }}}
+
+                -- CSharp {{{
+                'roslyn',
+                -- }}}
             },
         }
     end,
