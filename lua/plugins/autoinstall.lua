@@ -46,6 +46,7 @@ return {
                 'css-lsp',
                 'typescript-language-server',
                 'emmet-language-server',
+                'eslint-lsp',
                 --}}}
 
                 -- Bash {{{
