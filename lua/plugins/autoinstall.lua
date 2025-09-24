@@ -57,6 +57,7 @@ return {
 
                 -- CSharp {{{
                 'roslyn',
+                'csharpier',
                 -- }}}
             },
         }

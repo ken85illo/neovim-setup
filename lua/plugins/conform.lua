@@ -21,6 +21,7 @@ return {
             --cmake = { 'cmakelang' },
             sh = { 'beautysh' },
             bash = { 'beautysh' },
+            cs = { 'csharpier' },
         },
         format_on_save = {
             timeout_ms = 500,
