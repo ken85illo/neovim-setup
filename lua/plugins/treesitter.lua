@@ -3,7 +3,7 @@ return {
         'nvim-treesitter/nvim-treesitter',
         config = function()
             require('nvim-treesitter.configs').setup {
-                ensure_installed = { 'html', 'css', 'javascript', 'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline' },
+                ensure_installed = { 'godot_resource', 'html', 'css', 'javascript', 'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline' },
 
                 sync_install = false,
                 auto_install = true,
