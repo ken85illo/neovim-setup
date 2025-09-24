@@ -1,5 +1,7 @@
 return {
-    'mfussenegger/nvim-jdtls', -- Java
+    {
+        'mfussenegger/nvim-jdtls', -- Java
+    },
     {
         'neovim/nvim-lspconfig',
         dependencies = {
@@ -38,6 +40,15 @@ return {
                     cmd = { 'clangd', '--header-insertion=never' },
                 },
                 html = {
+                    root_dir = vim.fn.getcwd(),
+                },
+                css_ls = {
+                    root_dir = vim.fn.getcwd(),
+                },
+                ts_ls = {
+                    root_dir = vim.fn.getcwd(),
+                },
+                emmet_language_server = {
                     root_dir = vim.fn.getcwd(),
                 },
                 roslyn = {
