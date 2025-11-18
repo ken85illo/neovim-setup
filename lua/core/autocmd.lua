@@ -53,27 +53,27 @@ autocmd('FileType', {
 })
 
 -- Make background transparent
-autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
-    desc = 'Transparent background',
-    pattern = '*',
-    callback = function()
-        api.nvim_set_hl(0, 'WinSeparator', { fg = '#292a29', bold = true }) -- Show Window Borders
-        api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' }) -- Transparent Float Windows
-
-        -- Dark Gray Buffer Line
-        api.nvim_set_hl(0, 'TabLineFill', { bg = '#202020' })
-        api.nvim_set_hl(0, 'TabLine', { bg = '#202020' })
-        api.nvim_set_hl(0, 'BufferLine', { bg = '#202020' })
-        api.nvim_set_hl(0, 'BufferLineFill', { bg = '#202020' })
-
-        -- Dark Gray Status Line
-        api.nvim_set_hl(0, 'StatusLine', { bg = '#202020' })
-        api.nvim_set_hl(0, 'StatusLineNC', { bg = '#202020' })
-
-        -- Remove background for blink doc
-        api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'NONE' })
-        api.nvim_set_hl(0, 'BlinkCmpDocBorder', { bg = 'NONE', fg = '#7a7b7d' })
-        api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = 'NONE' })
-        api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { bg = 'NONE', fg = '#7a7b7d' })
-    end,
-})
+-- autocmd({ 'ColorScheme', 'BufWinEnter', 'WinNew' }, {
+--     desc = 'Transparent background',
+--     pattern = '*',
+--     callback = function()
+--         api.nvim_set_hl(0, 'WinSeparator', { fg = '#292a29', bold = true }) -- Show Window Borders
+--         api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' }) -- Transparent Float Windows
+--
+--         -- Dark Gray Buffer Line
+--         api.nvim_set_hl(0, 'TabLineFill', { bg = '#202020' })
+--         api.nvim_set_hl(0, 'TabLine', { bg = '#202020' })
+--         api.nvim_set_hl(0, 'BufferLine', { bg = '#202020' })
+--         api.nvim_set_hl(0, 'BufferLineFill', { bg = '#202020' })
+--
+--         -- Dark Gray Status Line
+--         api.nvim_set_hl(0, 'StatusLine', { bg = '#202020' })
+--         api.nvim_set_hl(0, 'StatusLineNC', { bg = '#202020' })
+--
+--         -- Remove background for blink doc
+--         api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = 'NONE' })
+--         api.nvim_set_hl(0, 'BlinkCmpDocBorder', { bg = 'NONE', fg = '#7a7b7d' })
+--         api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = 'NONE' })
+--         api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { bg = 'NONE', fg = '#7a7b7d' })
+--     end,
+-- })

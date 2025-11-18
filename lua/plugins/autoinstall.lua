@@ -59,6 +59,10 @@ return {
                 'roslyn',
                 'csharpier',
                 -- }}}
+
+                -- GDScript {{{
+                'gdtoolkit',
+                -- }}}
             },
         }
     end,
