@@ -44,11 +44,12 @@ autocmd('FileType', {
 })
 
 -- Disable folds in neo-tree
-autocmd('FileType', {
-    pattern = { 'neo-tree' },
+autocmd('BufEnter', {
     callback = function()
-        require('ufo').detach()
-        vim.opt_local.foldenable = false
+        if vim.bo.filetype == 'neo-tree' or vim.bo.filetype == 'toggleterm' or vim.bo.filetype:match '^dap' then
+            vim.wo.statuscolumn = ' '
+            vim.wo.signcolumn = 'no'
+        end
     end,
 })
 

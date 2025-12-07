@@ -52,11 +52,25 @@ return {
             desc = 'Step Out',
         },
         {
+            '<leader>dn',
+            function()
+                require('dap').step_over()
+            end,
+            desc = 'Step Over',
+        },
+        {
             '<leader>dp',
             function()
                 require('dap').pause()
             end,
             desc = 'Pause',
+        },
+        {
+            '<leader>dr',
+            function()
+                require('dap').restart()
+            end,
+            desc = 'Restart',
         },
         {
             '<leader>dt',
@@ -121,5 +135,41 @@ return {
                 project = '${workspaceFolder}',
             },
         }
+
+        dap.adapters.coreclr = {
+            type = 'executable',
+            command = home .. '/.local/share/nvim/mason/packages/netcoredbg/netcoredbg',
+            args = { '--interpreter=vscode' },
+        }
+
+        dap.configurations.cs = {
+            {
+                type = 'coreclr',
+                name = 'launch - netcoredbg',
+                request = 'launch',
+                program = function()
+                    return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+                end,
+            },
+        }
+
+        dap.adapters.firefox = {
+            type = 'executable',
+            command = 'node',
+            args = { home .. '/.local/share/nvim/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js' },
+        }
+
+        local firefox_config = {
+            name = 'Debug with Firefox',
+            type = 'firefox',
+            request = 'launch',
+            reAttach = true,
+            url = 'http://localhost:8080',
+            webRoot = '${workspaceFolder}',
+            firefoxExecutable = '/usr/bin/firefox',
+        }
+
+        dap.configurations.javascript = { firefox_config }
+        dap.configurations.typescript = { firefox_config }
     end,
 }

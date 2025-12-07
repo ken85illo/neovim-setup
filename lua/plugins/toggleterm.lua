@@ -4,6 +4,8 @@ return {
     config = function()
         require('toggleterm').setup {
             open_mapping = [[<m-\>]],
+            autochdir = true,
+            direction = 'float',
         }
     end,
 }

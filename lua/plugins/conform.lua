@@ -9,6 +9,7 @@ return {
         },
     },
     opts = {
+        async = true,
         formatters_by_ft = {
             lua = { 'stylua' },
             python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
@@ -18,13 +19,12 @@ return {
             html = { 'prettier' },
             js = { 'prettier' },
             css = { 'prettier' },
-            --cmake = { 'cmakelang' },
             sh = { 'beautysh' },
             bash = { 'beautysh' },
             cs = { 'csharpier' },
         },
         format_on_save = {
-            timeout_ms = 5000,
+            timeout_ms = 500,
             lsp_format = 'fallback',
         },
     },

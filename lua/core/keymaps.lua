@@ -45,10 +45,10 @@ nmap('<C-j>', '<C-w><C-j>', 'Move focus to the lower window')
 nmap('<C-k>', '<C-w><C-k>', 'Move focus to the upper window')
 
 -- Resize window
-nmap('<C-Up>', '<cmd>resize +2<CR>', 'Increase Window Size (Horizontal)')
-nmap('<C-Down>', '<cmd>resize -2<CR>', 'Decrease Window Size (Horizontal)')
-nmap('<C-Left>', '<cmd>vertical resize -2<CR>', 'Decrease Window Size (Vertical)')
-nmap('<C-Right>', '<cmd>vertical resize +2<CR>', 'Increase Window Size (Vertical)')
+nmap('<Up>', '<cmd>resize +2<CR>', 'Increase Window Size (Horizontal)')
+nmap('<Down>', '<cmd>resize -2<CR>', 'Decrease Window Size (Horizontal)')
+nmap('<Left>', '<cmd>vertical resize -2<CR>', 'Decrease Window Size (Vertical)')
+nmap('<Right>', '<cmd>vertical resize +2<CR>', 'Increase Window Size (Vertical)')
 
 -- Spawn window vertically or horizontally
 nmap('|', '<cmd>vsplit<CR>', 'Vertical Split')

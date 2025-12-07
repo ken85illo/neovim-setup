@@ -7,6 +7,10 @@ return {
                 enable_rename = true,
                 enable_close_on_slash = false,
             },
+            aliases = {
+                ['razor'] = 'html',
+                ['cshtml'] = 'html',
+            },
         }
     end,
 }

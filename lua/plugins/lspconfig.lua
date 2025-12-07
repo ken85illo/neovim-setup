@@ -1,9 +1,6 @@
 return {
     {
-        'mfussenegger/nvim-jdtls', -- Java
-    },
-    {
-        'neovim/nvim-lspconfig',
+        'williamboman/mason-lspconfig.nvim',
         dependencies = {
             {
                 'williamboman/mason.nvim',
@@ -14,7 +11,8 @@ return {
                     },
                 },
             },
-            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig',
+            'mfussenegger/nvim-jdtls', -- Java
         },
         opts = {
             -- LSPs configuration goes here
@@ -51,6 +49,10 @@ return {
                 emmet_language_server = {
                     root_dir = vim.fn.getcwd(),
                 },
+                gdscript = {
+                    name = 'godot',
+                    cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
+                },
                 roslyn = {
                     on_attach = function()
                         print 'This will run when the server attaches!'
@@ -64,10 +66,6 @@ return {
                             dotnet_enable_references_code_lens = true,
                         },
                     },
-                },
-                gdscript = {
-                    name = 'godot',
-                    cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
                 },
             },
         },
@@ -105,25 +103,13 @@ return {
             }
 
             require('mason-lspconfig').setup {
-                ensure_installed = {},
+                ensure_installed = { 'lua_ls@3.15.0' },
+                automatic_enable = true,
                 automatic_installation = true,
             }
 
-            -- [[Setups for LSPs]]
-            -- Automatically add other installed LSPs
-            local installed_lsps = {}
-            for _, pkg in ipairs(require('mason-registry').get_installed_packages()) do
-                if pkg.spec.categories[1] == 'LSP' then
-                    installed_lsps[pkg.name] = {}
-                end
-            end
-            installed_lsps['jdtls'] = nil -- Exclude JDTLS (nvim-jdtls already installed)
-
-            local all_lsps = vim.tbl_extend('keep', opts.servers, installed_lsps)
-            for server, config in pairs(all_lsps) do
-                config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities or {})
+            for server, config in pairs(opts.servers) do
                 vim.lsp.config(server, config)
-                vim.lsp.enable(server)
             end
         end,
     },

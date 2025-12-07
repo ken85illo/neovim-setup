@@ -4,7 +4,6 @@ return {
         require('mason-tool-installer').setup {
             ensure_installed = {
                 -- Lua {{{
-                'lua-language-server',
                 'stylua',
                 'local-lua-debugger-vscode',
                 --}}}
@@ -32,7 +31,7 @@ return {
                 -- }}}
 
                 -- Java {{{
-                'jdtls',
+                -- 'jdtls',
                 'java-debug-adapter',
                 -- }}}
 
@@ -46,7 +45,10 @@ return {
                 'css-lsp',
                 'typescript-language-server',
                 'emmet-language-server',
-                'eslint-lsp',
+                'tailwindcss-language-server',
+                'cssmodules-language-server',
+                'css-variables-language-server',
+                'firefox-debug-adapter',
                 --}}}
 
                 -- Bash {{{
@@ -58,6 +60,7 @@ return {
                 -- CSharp {{{
                 'roslyn',
                 'csharpier',
+                'netcoredbg',
                 -- }}}
 
                 -- GDScript {{{
