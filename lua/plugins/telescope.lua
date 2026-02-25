@@ -5,6 +5,7 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-ui-select.nvim',
+        'nvim-telescope/telescope-dap.nvim',
         {
             '1riz/telescope-macros.nvim',
             config = function()
@@ -14,6 +15,7 @@ return {
     },
     keys = function()
         local builtin = require 'telescope.builtin'
+        local telescope = require 'telescope'
 
         -- [[Telescope Keymaps]]
         return {
@@ -32,8 +34,14 @@ return {
             { mode = 'n', '<leader>s@', builtin.macros, desc = 'Macros', silent = true },
             { mode = 'n', '<leader>s:', builtin.commands, desc = 'Commands', silent = true },
             { mode = 'n', '<leader>sm', builtin.man_pages, desc = 'Man Pages', silent = true },
-            { mode = 'n', '<leader>sd', builtin.diagnostics, desc = 'Diagnostics', silent = true },
+            { mode = 'n', '<leader>sw', builtin.diagnostics, desc = 'Diagnostics', silent = true },
             { mode = 'n', '<leader>sq', builtin.resume, desc = 'Continue Search', silent = true },
+            { mode = 'n', '<leader>sd', '<Nop>', desc = 'Debug Search', silent = true },
+            { mode = 'n', '<leader>sdc', "<cmd>lua require('telescope').extensions.dap.commands {} <CR>", desc = 'DAP Commands', silent = true },
+            { mode = 'n', '<leader>sdo', "<cmd>lua require('telescope').extensions.dap.configurations {}<CR>", desc = 'DAP Configurations', silent = true },
+            { mode = 'n', '<leader>sdb', "<cmd>lua require('telescope').extensions.dap.list_breakpoints {}<CR>", desc = 'DAP Breakpoints', silent = true },
+            { mode = 'n', '<leader>sdv', "<cmd>lua require('telescope').extensions.dap.variables {}<CR>", desc = 'DAP Variables', silent = true },
+            { mode = 'n', '<leader>sdf', "<cmd>lua require('telescope').extensions.dap.frames {}<CR>", desc = 'DAP Frames', silent = true },
         }
     end,
     config = function()
@@ -47,6 +55,10 @@ return {
                         ['q'] = actions.close,
                     },
                 },
+                file_ignore_patterns = {
+                    'node_modules',
+                    'wwwroot',
+                },
             },
             extensions = {
                 ['ui-select'] = {
@@ -55,5 +67,6 @@ return {
             },
         }
         require('telescope').load_extension 'ui-select'
+        require('telescope').load_extension 'dap'
     end,
 }

@@ -6,6 +6,7 @@ return {
                 -- Lua {{{
                 'stylua',
                 'local-lua-debugger-vscode',
+                'lua-language-server',
                 --}}}
 
                 -- Python {{{
@@ -17,8 +18,8 @@ return {
                 -- C/C++ {{{
                 'clangd',
                 'clang-format',
-                'codelldb',
                 'glsl_analyzer',
+                'cpptools',
                 -- }}}
 
                 -- Makefile {{{
@@ -31,7 +32,7 @@ return {
                 -- }}}
 
                 -- Java {{{
-                -- 'jdtls',
+                'jdtls',
                 'java-debug-adapter',
                 -- }}}
 
@@ -49,6 +50,7 @@ return {
                 'cssmodules-language-server',
                 'css-variables-language-server',
                 'firefox-debug-adapter',
+                'eslint_d',
                 --}}}
 
                 -- Bash {{{

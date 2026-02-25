@@ -16,6 +16,7 @@ return {
                         -- See the configuration section for more details
                         -- Load luvit types when the `vim.uv` word is found
                         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+                        { 'nvim-dap-ui' },
                     },
                 },
             },
@@ -80,9 +81,8 @@ return {
                                             icon = dev_icon
                                         end
                                     else
-                                        icon = require('lspkind').symbolic(ctx.kind, {
-                                            mode = 'symbol',
-                                        })
+                                        local lspkind = require 'lspkind'
+                                        icon = (lspkind.symbol_map and lspkind.symbol_map[ctx.kind]) or ctx.kind_icon
                                     end
 
                                     return icon .. ctx.icon_gap

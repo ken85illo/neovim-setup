@@ -6,6 +6,10 @@ return {
             open_mapping = [[<m-\>]],
             autochdir = true,
             direction = 'float',
+            winbar = {
+                enabled = true,
+            },
+            shell = 'zsh',
         }
     end,
 }

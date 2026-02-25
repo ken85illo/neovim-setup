@@ -26,7 +26,8 @@ opt.termguicolors = true -- Enable highlight groups
 opt.whichwrap = 'bs<>[]hl' -- Allows horizontal keys to move to next line
 opt.wrap = false -- Disable line wrappping
 opt.showmode = false -- Don't show mode, its already displayed in lualine
--- opt.laststatus = 3 -- Show line between horizontal splits
+opt.equalalways = false -- Resizing windows
+opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 -- Case-insensitive searhing UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = false

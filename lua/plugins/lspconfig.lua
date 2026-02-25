@@ -39,6 +39,7 @@ return {
                 },
                 html = {
                     root_dir = vim.fn.getcwd(),
+                    filetypes = { 'html', 'templ', 'cshtml', 'razor' },
                 },
                 css_ls = {
                     root_dir = vim.fn.getcwd(),
@@ -48,15 +49,32 @@ return {
                 },
                 emmet_language_server = {
                     root_dir = vim.fn.getcwd(),
+                    filetypes = {
+                        'astro',
+                        'css',
+                        'eruby',
+                        'html',
+                        'htmlangular',
+                        'htmldjango',
+                        'javascriptreact',
+                        'less',
+                        'pug',
+                        'sass',
+                        'scss',
+                        'svelte',
+                        'templ',
+                        'typescriptreact',
+                        'vue',
+                        'cshtml',
+                        'razor',
+                    },
                 },
                 gdscript = {
                     name = 'godot',
                     cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
                 },
                 roslyn = {
-                    on_attach = function()
-                        print 'This will run when the server attaches!'
-                    end,
+                    offset_encoding = 'utf-8',
                     settings = {
                         ['csharp|inlay_hints'] = {
                             csharp_enable_inlay_hints_for_implicit_object_creation = true,
@@ -103,9 +121,7 @@ return {
             }
 
             require('mason-lspconfig').setup {
-                ensure_installed = { 'lua_ls@3.15.0' },
                 automatic_enable = true,
-                automatic_installation = true,
             }
 
             for server, config in pairs(opts.servers) do

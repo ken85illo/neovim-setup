@@ -28,7 +28,8 @@ nmap('<leader>bn', '<cmd>BufferLineMoveNext<CR><CR>', 'Move to Next Buffer')
 nmap('<leader>bp', '<cmd>BufferLineMovePrev<CR>', 'Move to Previous Buffer')
 nmap('<leader>bo', '<cmd>BufferLineCloseOthers<CR>', 'Delete Every Buffer')
 nmap('<leader>bd', '<cmd>bn|bd! #<CR>', 'Delete Current Buffer')
-nmap('<leader>ba', '<cmd>%bd<CR>', 'Delete Every Buffer')
+nmap('<leader>be', '<cmd>%bd<CR>', 'Delete Every Buffer')
+nmap('<leader>ba', '<cmd>enew<CR>', 'Add New Buffer')
 
 -- Tab Keymaps
 nmap('<leader><Tab>', '<Nop>', 'Tabs')

@@ -17,6 +17,13 @@ return {
             desc = 'DAP Debugger',
         },
         {
+            '<leader>dk',
+            function()
+                require('dapui').eval()
+            end,
+            desc = 'Evaluate expression',
+        },
+        {
             '<leader>dB',
             function()
                 require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
@@ -90,6 +97,20 @@ return {
     config = function()
         local home = os.getenv 'HOME' .. '/'
         local dap = require 'dap'
+        local dapui = require 'dapui'
+
+        dap.listeners.before.attach.dapui_config = function()
+            dapui.open()
+        end
+        dap.listeners.before.launch.dapui_config = function()
+            dapui.open()
+        end
+        dap.listeners.before.event_terminated.dapui_config = function()
+            dapui.close()
+        end
+        dap.listeners.before.event_exited.dapui_config = function()
+            dapui.close()
+        end
 
         require('mason').setup()
         require('mason-nvim-dap').setup {
@@ -100,26 +121,52 @@ return {
         require('dapui').setup { reset = true }
         require('dap-python').setup(home .. '/.local/share/nvim/mason/packages/debugpy/venv/bin/python')
 
-        dap.adapters.codelldb = {
+        dap.adapters.cppdbg = {
+            id = 'cppdbg',
             type = 'executable',
-            command = home .. '.local/share/nvim/mason/packages/codelldb/codelldb',
+            command = home .. '/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
         }
 
-        dap.configurations.c = {
+        dap.configurations.cpp = {
             {
-                name = 'Launch',
-                type = 'codelldb',
+                name = 'Launch file',
+                type = 'cppdbg',
                 request = 'launch',
-                program = function() -- Ask the user what executable wants to debug
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/build/bin/program', 'file')
+                program = function()
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
                 end,
-                cwd = '${workspaceFolder}/build',
-                stopOnEntry = false,
-                args = {},
+                cwd = '${workspaceFolder}',
+                stopAtEntry = false,
+                setupCommands = {
+                    {
+                        text = '-enable-pretty-printing',
+                        description = 'enable pretty printing',
+                        ignoreFailures = false,
+                    },
+                },
+            },
+            {
+                name = 'Attach to gdbserver :1234',
+                type = 'cppdbg',
+                request = 'launch',
+                MIMode = 'gdb',
+                miDebuggerServerAddress = 'localhost:1234',
+                miDebuggerPath = '/usr/bin/gdb',
+                cwd = '${workspaceFolder}',
+                program = function()
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                end,
+                setupCommands = {
+                    {
+                        text = '-enable-pretty-printing',
+                        description = 'enable pretty printing',
+                        ignoreFailures = false,
+                    },
+                },
             },
         }
-
-        dap.configurations.cpp = dap.configurations.c
+        dap.configurations.c = dap.configurations.cpp
+        dap.configurations.rust = dap.configurations.cpp
 
         dap.adapters.godot = {
             type = 'server',

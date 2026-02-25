@@ -22,6 +22,7 @@ autocmd('FileType', {
         'notify',
         'toggleterm',
         'markdown',
+        '^dap',
     },
 
     callback = function()
