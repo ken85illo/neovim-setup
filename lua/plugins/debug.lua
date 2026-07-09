@@ -2,6 +2,8 @@ return {
     'mfussenegger/nvim-dap',
     dependencies = {
         'rcarriga/nvim-dap-ui',
+        'igorlfs/nvim-dap-view',
+        'theHamsta/nvim-dap-virtual-text',
         'nvim-neotest/nvim-nio',
 
         'williamboman/mason.nvim',
@@ -210,17 +212,43 @@ return {
             args = { home .. '/.local/share/nvim/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js' },
         }
 
-        local firefox_config = {
-            name = 'Debug with Firefox',
-            type = 'firefox',
-            request = 'launch',
-            reAttach = true,
-            url = 'http://localhost:8080',
-            webRoot = '${workspaceFolder}',
-            firefoxExecutable = '/usr/bin/firefox',
+        dap.adapters['pwa-node'] = {
+            type = 'server',
+            host = 'localhost',
+            port = '${port}',
+            executable = {
+                command = 'node',
+                args = { home .. '/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js', '${port}' },
+            },
         }
 
-        dap.configurations.javascript = { firefox_config }
-        dap.configurations.typescript = { firefox_config }
+        local js_config = {
+            {
+                type = 'pwa-node',
+                request = 'launch',
+                name = 'Launch file (Node)',
+                program = '${file}',
+                cwd = '${workspaceFolder}',
+            },
+            {
+                type = 'pwa-node',
+                request = 'attach',
+                name = 'Attach by Process (Node)',
+                processId = require('dap.utils').pick_process,
+                cwd = '${workspaceFolder}',
+            },
+            {
+                name = 'Debug with Firefox',
+                type = 'firefox',
+                request = 'launch',
+                reAttach = true,
+                url = 'http://localhost:8080',
+                webRoot = '${workspaceFolder}',
+                firefoxExecutable = '/usr/bin/firefox',
+            },
+        }
+
+        dap.configurations.javascript = js_config
+        dap.configurations.typescript = js_config
     end,
 }

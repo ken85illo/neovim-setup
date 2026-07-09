@@ -48,6 +48,11 @@ return {
                 },
                 ts_ls = {
                     root_dir = vim.fn.getcwd(),
+                    init_options = {
+                        tsserver = {
+                            path = '/home/kennethpabillo/.nvm/versions/node/v24.14.0/lib/node_modules/typescript/lib',
+                        },
+                    },
                 },
                 emmet_language_server = {
                     root_dir = vim.fn.getcwd(),

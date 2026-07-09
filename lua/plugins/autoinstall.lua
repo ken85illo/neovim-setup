@@ -49,6 +49,7 @@ return {
                 'tailwindcss-language-server',
                 'cssmodules-language-server',
                 'css-variables-language-server',
+                'js-debug-adapter',
                 'firefox-debug-adapter',
                 'eslint_d',
                 --}}}
