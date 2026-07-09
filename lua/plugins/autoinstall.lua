@@ -68,6 +68,14 @@ return {
                 -- GDScript {{{
                 'gdtoolkit',
                 -- }}}
+
+                -- COBOL {{{
+                'cobol-language-support',
+                -- }}}
+
+                -- PHP {{{
+                'intelephense',
+                -- }}}
             },
         }
     end,

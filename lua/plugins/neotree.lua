@@ -41,4 +41,31 @@ return {
             },
         },
     },
+    config = function()
+        local events = require 'neo-tree.events'
+
+        local function handleTreeEvent()
+            local dapui = require 'dapui'
+
+            -- Check if any dapui windows are open
+            local dapui_open = false
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+                local buf = vim.api.nvim_win_get_buf(win)
+                local ft = vim.bo[buf].filetype
+                if ft and ft:match '^dapui_' then
+                    dapui_open = true
+                    break
+                end
+            end
+
+            if dapui_open then
+                dapui.open { reset = true }
+            end
+        end
+
+        events.subscribe {
+            event = events.NEO_TREE_WINDOW_AFTER_CLOSE,
+            handler = handleTreeEvent,
+        }
+    end,
 }

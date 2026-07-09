@@ -33,6 +33,21 @@ return {
                     enabled = false,
                 },
             },
+            hover = {
+                silent = true,
+            },
+        },
+        routes = {
+            {
+                filter = {
+                    -- Capture errors or notifications matching avante text
+                    any = {
+                        { find = 'avante' },
+                        { find = 'Avante' },
+                    },
+                },
+                opts = { skip = true }, -- Completely hides the popup and skips rendering it
+            },
         },
     },
 }

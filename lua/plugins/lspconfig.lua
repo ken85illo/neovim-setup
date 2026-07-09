@@ -30,7 +30,9 @@ return {
                     root_dir = vim.fn.getcwd(),
                     settings = {
                         basedpyright = {
-                            typeCheckingMode = 'standard',
+                            analysis = {
+                                typeCheckingMode = 'basic',
+                            },
                         },
                     },
                 },
@@ -67,6 +69,7 @@ return {
                         'vue',
                         'cshtml',
                         'razor',
+                        'php',
                     },
                 },
                 gdscript = {

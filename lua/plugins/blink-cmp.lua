@@ -39,7 +39,10 @@ return {
                     }
                 end,
             },
+            { 'Kaiser-Yang/blink-cmp-avante' },
+            { 'fang2hou/blink-copilot' },
         },
+
         version = '1.*',
         opts = {
             snippets = { preset = 'luasnip' },
@@ -120,7 +123,7 @@ return {
                 completion = { menu = { auto_show = true } },
             },
             sources = {
-                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'html-css' },
+                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'html-css', 'copilot', 'avante' },
                 providers = {
                     lazydev = {
                         name = 'LazyDev',
@@ -130,6 +133,19 @@ return {
                     ['html-css'] = {
                         name = 'html-css',
                         module = 'blink.compat.source',
+                    },
+                    copilot = {
+                        name = 'copilot',
+                        module = 'blink-copilot',
+                        score_offset = 100,
+                        async = true,
+                    },
+                    avante = {
+                        module = 'blink-cmp-avante',
+                        name = 'Avante',
+                        opts = {
+                            -- options for blink-cmp-avante
+                        },
                     },
                 },
             },

@@ -26,7 +26,7 @@ opt.termguicolors = true -- Enable highlight groups
 opt.whichwrap = 'bs<>[]hl' -- Allows horizontal keys to move to next line
 opt.wrap = false -- Disable line wrappping
 opt.showmode = false -- Don't show mode, its already displayed in lualine
-opt.equalalways = false -- Resizing windows
+-- opt.equalalways = false -- Resizing windows
 opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 -- Case-insensitive searhing UNLESS \C or one or more capital letters in the search term
@@ -36,3 +36,16 @@ opt.smartcase = false
 -- Sets how neovim will display certain whitespace characters in the editor.
 opt.list = true
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- views can only be fully collapsed with the global statusline
+opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+opt.splitkeep = 'screen'
+
+--- Filetypes
+vim.filetype.add {
+    extension = {
+        ['COB'] = 'cobol',
+    },
+}

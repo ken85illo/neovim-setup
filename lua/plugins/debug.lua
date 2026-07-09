@@ -89,7 +89,7 @@ return {
         {
             '<F5>',
             function()
-                require('dapui').toggle()
+                require('dapui').toggle { reset = true }
             end,
             desc = 'Debug: See last session result.',
         },
@@ -100,10 +100,10 @@ return {
         local dapui = require 'dapui'
 
         dap.listeners.before.attach.dapui_config = function()
-            dapui.open()
+            dapui.open { reset = true }
         end
         dap.listeners.before.launch.dapui_config = function()
-            dapui.open()
+            dapui.open { reset = true }
         end
         dap.listeners.before.event_terminated.dapui_config = function()
             dapui.close()
@@ -134,6 +134,10 @@ return {
                 request = 'launch',
                 program = function()
                     return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                end,
+                args = function()
+                    local args_string = vim.fn.input 'Arguments: '
+                    return vim.split(args_string, ' ')
                 end,
                 cwd = '${workspaceFolder}',
                 stopAtEntry = false,

@@ -18,7 +18,7 @@ nmap('<leader>l', '<cmd>Lazy<CR>', 'Open Lazy UI')
 nmap('<leader>m', '<cmd>Mason<CR>', 'Open Mason UI')
 
 -- Reveal Neo-tree
-nmap('\\', '<cmd>Neotree reveal<CR>', 'Reveal Neotree')
+nmap('\\', '<cmd>Neotree toggle<CR>', 'Reveal Neotree')
 
 -- Buffer Keymaps
 nmap('<leader>b', '<Nop>', 'Buffer Keymaps')
