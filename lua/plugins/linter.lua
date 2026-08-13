@@ -1,25 +1,25 @@
 return {
+
     'williamboman/mason.nvim',
     {
+        'rachartier/tiny-inline-diagnostic.nvim',
+        event = 'VeryLazy',
+        priority = 1000,
+        config = function()
+            require('tiny-inline-diagnostic').setup()
+        end,
+    },
+    {
         'mfussenegger/nvim-lint',
-        dependencies = {
-            {
-                'sontungexpt/better-diagnostic-virtual-text',
-                event = 'LspAttach',
-                config = function(_)
-                    require('better-diagnostic-virtual-text').setup()
-                end,
-            },
-        },
         config = function()
             local lint = require 'lint'
 
             lint.linters_by_ft = {
                 lua = { 'luacheck' },
-                javascript = { 'eslint_d' },
-                typescript = { 'eslint_d' },
-                javascriptreact = { 'eslint_d' },
-                typescriptreact = { 'eslint_d' },
+                javascript = { 'eslint' },
+                typescript = { 'eslint' },
+                javascriptreact = { 'eslint' },
+                typescriptreact = { 'eslint' },
                 html = { 'htmlhint' },
             }
 
@@ -45,9 +45,8 @@ return {
                     require('lint').try_lint()
                 end,
             })
-
             vim.diagnostic.config {
-                -- virtual_text = true,
+                virtual_text = false,
                 float = {
                     border = 'single',
                 },

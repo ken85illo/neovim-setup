@@ -2,8 +2,7 @@ return {
     'mfussenegger/nvim-dap',
     dependencies = {
         'rcarriga/nvim-dap-ui',
-        'igorlfs/nvim-dap-view',
-        'theHamsta/nvim-dap-virtual-text',
+
         'nvim-neotest/nvim-nio',
 
         'williamboman/mason.nvim',
@@ -45,6 +44,13 @@ return {
                 require('dap').continue()
             end,
             desc = 'Run/Continue',
+        },
+        {
+            '<leader>dl',
+            function()
+                require('dap').run_last()
+            end,
+            desc = 'Run/Continue Last Session',
         },
         {
             '<leader>di',
@@ -236,19 +242,34 @@ return {
                 name = 'Attach by Process (Node)',
                 processId = require('dap.utils').pick_process,
                 cwd = '${workspaceFolder}',
+                restart = true,
+                sourceMaps = true,
+                trace = true,
+                timeout = 5000, -- Gives up and resets if stuck for 5s
+                terminateOnDisconnect = true, -- Kills the dead debug session
             },
             {
-                name = 'Debug with Firefox',
+                name = 'Debug with Firefox (Launch)',
                 type = 'firefox',
                 request = 'launch',
+                restart = true,
                 reAttach = true,
-                url = 'http://localhost:8080',
+                url = function()
+                    return vim.fn.input('Enter Launch URL: ', 'http://localhost:8080')
+                end,
                 webRoot = '${workspaceFolder}',
                 firefoxExecutable = '/usr/bin/firefox',
+            },
+            {
+                name = 'Debug with Firefox (Attach)',
+                type = 'firefox',
+                request = 'attach',
             },
         }
 
         dap.configurations.javascript = js_config
         dap.configurations.typescript = js_config
+        dap.configurations.typescriptreact = js_config
+        dap.configurations.javascriptreact = js_config
     end,
 }

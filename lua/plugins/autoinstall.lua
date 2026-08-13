@@ -44,14 +44,14 @@ return {
                 -- WEBDEV {{{
                 'html-lsp',
                 'css-lsp',
-                'typescript-language-server',
                 'emmet-language-server',
+                'typescript-language-server',
                 'tailwindcss-language-server',
                 'cssmodules-language-server',
                 'css-variables-language-server',
                 'js-debug-adapter',
                 'firefox-debug-adapter',
-                'eslint_d',
+                -- 'eslint',
                 --}}}
 
                 -- Bash {{{

@@ -48,6 +48,25 @@ return {
     },
     opts = {
         async = true,
+        formatters = {
+            prettier = {
+                args = function(ctx)
+                    local bufnr = ctx.buf or vim.api.nvim_get_current_buf()
+                    local filetype = vim.bo[bufnr].filetype
+
+                    -- Check if it is an EJS file
+                    if filetype == 'ejs' then
+                        return {
+                            '--plugin',
+                            os.getenv 'HOME' .. '/.nvm/versions/node/v24.18.0/lib/node_modules/prettier-plugin-ejs/index.js',
+                            '--stdin-filepath',
+                            '$FILENAME',
+                        }
+                    end
+                    return { '--stdin-filepath', '$FILENAME' }
+                end,
+            },
+        },
         formatters_by_ft = {
             lua = { 'stylua' },
             python = { 'ruff', 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
@@ -59,6 +78,7 @@ return {
             javascriptreact = { 'prettier' },
             typescript = { 'prettier' },
             typescriptreact = { 'prettier' },
+            ejs = { 'prettier' },
             css = { 'prettier' },
             sh = { 'beautysh' },
             bash = { 'beautysh' },

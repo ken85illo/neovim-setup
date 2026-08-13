@@ -10,6 +10,7 @@ return {
             aliases = {
                 ['razor'] = 'html',
                 ['cshtml'] = 'html',
+                ['ejs'] = 'html',
             },
         }
     end,

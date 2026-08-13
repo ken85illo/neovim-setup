@@ -39,12 +39,22 @@ return {
                     }
                 end,
             },
-            { 'Kaiser-Yang/blink-cmp-avante' },
-            { 'fang2hou/blink-copilot' },
         },
 
         version = '1.*',
         opts = {
+            keymap = {
+                preset = 'default', -- or 'super-tab' if you use that
+
+                -- Explicitly take control of C-n and C-p
+                ['<C-n>'] = { 'select_next', 'fallback' },
+                ['<C-p>'] = { 'select_prev', 'fallback' },
+
+                -- If you also want Tab / Shift-Tab to work safely:
+                ['<Tab>'] = { 'select_next', 'fallback' },
+                ['<S-Tab>'] = { 'select_prev', 'fallback' },
+            },
+
             snippets = { preset = 'luasnip' },
             appearance = {
                 nerd_font_variant = 'mono',
@@ -56,6 +66,9 @@ return {
                 },
             },
             completion = {
+                list = {
+                    selection = { auto_insert = false },
+                },
                 ghost_text = {
                     enabled = true,
                 },
@@ -123,7 +136,15 @@ return {
                 completion = { menu = { auto_show = true } },
             },
             sources = {
-                default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'html-css', 'copilot', 'avante' },
+                default = {
+                    'lazydev',
+                    'lsp',
+                    'path',
+                    'snippets',
+                    'buffer',
+                    'html-css',
+                    'codecompanion',
+                },
                 providers = {
                     lazydev = {
                         name = 'LazyDev',
@@ -133,19 +154,6 @@ return {
                     ['html-css'] = {
                         name = 'html-css',
                         module = 'blink.compat.source',
-                    },
-                    copilot = {
-                        name = 'copilot',
-                        module = 'blink-copilot',
-                        score_offset = 100,
-                        async = true,
-                    },
-                    avante = {
-                        module = 'blink-cmp-avante',
-                        name = 'Avante',
-                        opts = {
-                            -- options for blink-cmp-avante
-                        },
                     },
                 },
             },

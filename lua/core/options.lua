@@ -28,6 +28,7 @@ opt.wrap = false -- Disable line wrappping
 opt.showmode = false -- Don't show mode, its already displayed in lualine
 -- opt.equalalways = false -- Resizing windows
 opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+opt.backupcopy = 'yes'
 
 -- Case-insensitive searhing UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = false
@@ -47,5 +48,6 @@ opt.splitkeep = 'screen'
 vim.filetype.add {
     extension = {
         ['COB'] = 'cobol',
+        ['ejs'] = 'ejs',
     },
 }
